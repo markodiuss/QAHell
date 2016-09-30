@@ -18,8 +18,6 @@ public class Currency  {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(50, TimeUnit.SECONDS);
 
-
-
         driver.get("http://minfin.com.ua/");
         String text = driver.findElement(By.xpath("(//*[@class='mf-currency-ask'])[3]")).getText();
         System.out.println(text);
