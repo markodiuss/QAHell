@@ -12,9 +12,9 @@ import java.util.concurrent.TimeUnit;
  */
 public class VkAndFbLogin {
 
-    String vkEmail = "kvinto91@gmail.com";
-    String vkPass = "al54noob10a";
-    String fbPass = "bal54noob10a";
+    String vkEmail = "";
+    String vkPass = "";
+    String fbPass = "";
 
 
 
