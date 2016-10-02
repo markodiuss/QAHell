@@ -15,10 +15,16 @@ public class Tasks {
         int firstVariable = scanInt.nextInt();
         int secondVariable = scanInt.nextInt();
 
+
         // код для вычесления результата деления с остатком
         int wholeNumber = firstVariable/secondVariable;
         int remainderNumber = firstVariable%secondVariable;
         System.out.println("Результат деления: " +wholeNumber+ " целое число, и " +remainderNumber+ " остача");
+
+
+
+
+
 
     }
 
