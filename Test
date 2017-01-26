@@ -1,0 +1,118 @@
+package testRegForm;
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import java.io.File;
+import java.util.concurrent.TimeUnit;
+
+import static constants.ConstantsForRegistration.*;
+
+/**
+ * Created by Markodius on 26.01.2017.
+ */
+public class RegFormInfoUrok {
+
+    WebDriver driver;
+    //ProxyServer server;
+
+    @BeforeTest
+    public void setUpBrowser() {
+
+
+        System.out.println("SetUp Chrome");
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(DEFAULT_WAIT_TIME, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(DEFAULT_WAIT_TIME, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        /*
+        server = new ProxyServer();
+        server.start();
+        server.autoBasicAuthorization("iu.arnit.com.ua","infourok", "sWu6UpHet3eF");
+        Proxy proxy = server.seleniumProxy();
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(CapabilityType.PROXY,proxy);
+        driver = new ChromeDriver(capabilities);
+        */
+
+    }
+
+
+    @Test
+    public void regForm() throws Exception  {
+
+        //String testUser = "username";
+        //String testPassword = "password";
+
+        String strSurName = "Иванов";
+        String strName = "Иван";
+        String strSecondName = "Иванович";
+        String strEmail = "zazefohe@binka.me";
+        String strPassword = "2306vv1737";
+
+        driver.get(infoUrokTestPage);
+        //driver.manage().addCookie(cookie);
+        /*File aoutoIt = new File("src/tests/resources/InfoUrokLogin.exe");
+        Process runScript = Runtime.getRuntime().exec(aoutoIt.getAbsolutePath() + " " + testUser + " "
+        + testPassword);
+        */
+
+
+
+        driver.findElement(By.cssSelector(".dr-cabinet-toggle1")).click();
+        driver.findElement(By.xpath(".//*[@id='aa-login-reg']/ul/li[2]/a")).click();
+
+        //Фамилия
+        driver.findElement(By.xpath(".//*[@id='RegistrationFormNew_lastname']")).clear();
+        driver.findElement(By.xpath(".//*[@id='RegistrationFormNew_lastname']")).sendKeys(strSurName);
+
+        //Имя
+        driver.findElement(By.xpath(".//*[@id='RegistrationFormNew_firstname']")).clear();
+        driver.findElement(By.xpath(".//*[@id='RegistrationFormNew_firstname']")).sendKeys(strName);
+
+        //Отчество
+        driver.findElement(By.xpath(".//*[@id='RegistrationFormNew_midname']")).clear();
+        driver.findElement(By.xpath(".//*[@id='RegistrationFormNew_midname']")).sendKeys(strSecondName);
+
+        //Электронный адресс
+        driver.findElement(By.xpath(".//*[@id='RegistrationFormNew_email']")).clear();
+        driver.findElement(By.xpath(".//*[@id='RegistrationFormNew_email']")).sendKeys(strEmail);
+
+        //Страна
+        Select select = new Select(driver.findElement(By.cssSelector("#RegistrationFormNew_id_country")));
+        select.selectByVisibleText("Россия");
+
+        //Пароль
+        driver.findElement(By.cssSelector("#RegistrationFormNew_password")).clear();
+        driver.findElement(By.cssSelector("#RegistrationFormNew_password")).sendKeys(strPassword);
+        driver.findElement(By.cssSelector("#RegistrationFormNew_password2")).clear();
+        driver.findElement(By.cssSelector("#RegistrationFormNew_password2")).sendKeys(strPassword);
+
+        //Тип юзера
+        driver.findElement(By.cssSelector("#RegistrationFormNew_type_user_0")).click();
+
+        driver.findElement(By.cssSelector("#ajax-registration-form>center>input")).click();
+
+        //Активация аккаунта
+
+        driver.get(eMails);
+        driver.findElement(By.cssSelector(".title-subject")).click();
+        driver.findElement(By.xpath("html/body/div[1]/div/div/div[2]/div/div/div[3]/div/div/a[2]")).click();
+
+
+
+
+    }
+
+
+}
