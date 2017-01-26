@@ -1,0 +1,22 @@
+package constants;
+
+/**
+ * Created by user on 26.01.2017.
+ */
+public class ConstantsForRegistration {
+
+    public static final int DEFAULT_WAIT_TIME = 30;
+
+    public static final int DEFAULT_WAIT_SHORT_TIME = 5;
+
+    public static final int DEFAULT_WAIT_LONG_TIME = 60;
+
+    public static final String infoUrokTestPage = "http://iu.arnit.com.ua/";
+
+    public static final String infoUrokMainPage = "https://infourok.ru/";
+
+    public static final String eMails = "https://temp-mail.ru/";
+
+
+
+}
